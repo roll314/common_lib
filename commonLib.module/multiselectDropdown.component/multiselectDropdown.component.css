@@ -1,0 +1,218 @@
+.c-dropdown {
+    position: relative;
+}
+
+.c-btn {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+    color: #333;
+}
+
+.c-btn.disabled {
+    background: #ccc;
+}
+
+.c-btn:focus {
+    outline: none;
+}
+
+.selected-list .c-list {
+    float: left;
+    padding: 0px;
+    margin: 0px;
+    width: calc(100% - 20px);
+}
+
+.selected-list .c-list .c-token {
+    list-style: none;
+    padding: 0px 5px;
+    background: #0079FE;
+    color: #fff;
+    border-radius: 2px;
+    margin-right: 4px;
+    margin-top: 2px;
+    float: left;
+}
+
+.selected-list .c-list .c-token .c-label {
+    display: block;
+    float: left;
+    /*width: 50px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;*/
+}
+
+.selected-list .c-list .c-token .fa-remove {
+    margin-left: 1px;
+    font-size: 12px;
+    z-index: 100000000;
+}
+
+.selected-list .fa-angle-down, .selected-list .fa-angle-up {
+    font-size: 15pt;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.selected-list .countplaceholder {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.selected-list .c-btn {
+    width: 100%;
+    /*box-shadow: 0px 1px 5px #959595;*/
+    /*  padding: 10px;*/
+    padding: 7px 12px;
+    cursor: pointer;
+    display: flex;
+    position: relative;
+}
+
+.dropdown-list {
+    position: absolute;
+    padding-top: 14px;
+    width: 100%;
+    z-index: 9999;
+}
+
+.dropdown-list ul {
+    padding: 0px;
+    list-style: none;
+    overflow: auto;
+    margin: 0px;
+}
+
+.dropdown-list ul li {
+    padding: 10px 10px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.dropdown-list ul li:first-child {
+    padding-top: 10px;
+}
+
+.dropdown-list ul li:last-child {
+    padding-bottom: 10px;
+}
+
+.dropdown-list ul li:hover {
+    background: #f5f5f5;
+}
+
+.dropdown-list ::-webkit-scrollbar {
+    width: 8px;
+}
+
+.dropdown-list ::-webkit-scrollbar-thumb {
+    background: #cccccc;
+    border-radius: 5px;
+}
+
+.dropdown-list ::-webkit-scrollbar-track {
+    background: #f2f2f2;
+}
+
+.arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-bottom: 15px solid #fff;
+    margin-left: 15px;
+    position: absolute;
+    top: 0;
+}
+
+.arrow-2 {
+    border-bottom: 15px solid #ccc;
+    top: -1px;
+}
+
+.list-area {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background: #fff;
+    margin: 0px;
+    box-shadow: 0px 1px 5px #959595;
+}
+
+.select-all {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+}
+
+.list-filter {
+    border-bottom: 1px solid #ccc;
+    position: relative;
+}
+
+.list-filter input {
+    border: 0px;
+    width: 100%;
+    height: 35px;
+    padding: 0px 0px 0px 35px;
+}
+
+.list-filter input:focus {
+    outline: none;
+}
+
+.list-filter .fa {
+    position: absolute;
+    top: 10px;
+    left: 13px;
+    color: #888;
+}
+
+.list-message {
+    text-align: center;
+    font-weight: 400;
+}
+
+.list-grp {
+    padding: 0 15px !important;
+}
+
+.list-grp h4 {
+    text-transform: capitalize;
+    margin: 15px 0px 0px 0px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.list-grp > li {
+    padding-left: 15px !important;
+}
+
+
+
+.lazy-item {
+    position: absolute;
+    width: 100%;
+}
+
+.overflow-ellipsis {
+    max-height: 50px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+.bubble-overflow-ellipsis {
+    max-width: 100px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

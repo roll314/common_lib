@@ -1,0 +1,12 @@
+.pure-checkbox {
+    width: 25px;
+}
+
+.selected-row td {
+    background-color: #eee !important;
+}
+
+.no-records-message {
+    width: 100%;
+    text-align: center;
+}

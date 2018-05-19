@@ -1,0 +1,35 @@
+<div class="wrapper">
+    <ng-container [ngSwitch]="currentView">
+        <ng-container *ngSwitchCase="'day'">
+            <div class="header">
+                <span class="month-selector">
+                    <i class="left-arrow fa fa-angle-left" style="float: left;" (click)="prevMonth()"></i>
+                    <span class="month-name" (click)="setView('month')">{{monthName}}</span>
+                    <i class="right-arrow fa fa-angle-right" style="float: right;" (click)="nextMonth()"></i>
+                </span>
+                <span>
+                    <i class="fa fa-calendar" style="cursor:pointer;" (click)="setToday()"></i>
+                </span>
+                <span style="float: right">
+                    <i class="left-arrow fa fa-angle-left" (click)="prevYear()"></i>
+                    <span class="year-name" (click)="setView('year')">{{viewDate?.getFullYear()}}</span>
+                    <i class="right-arrow fa fa-angle-right" (click)="nextYear()"></i>
+                </span>
+            </div>
+            <ng-calendar
+                    [ngModel]="date"
+                    [viewDate]="viewDate"
+                    [disabledDays]="settings.disabledDays"
+                    [daysOfWeeks]="settings.daysOfWeeks"
+                    [addFunction]="addFunction"
+                    (onDateChange)="onCalendarDateChange($event)">
+            </ng-calendar>
+        </ng-container>
+        <ng-container *ngSwitchCase="'month'">
+            <month-picker [ngModel]="viewDate.getMonth()" (onMonthChanged)="setMonth($event)" [months]="settings.shortMonthNames"></month-picker>
+        </ng-container>
+        <ng-container *ngSwitchCase="'year'">
+            <year-picker [ngModel]="viewDate.getFullYear()" (onYearChanged)="setYear($event)"></year-picker>
+        </ng-container>
+    </ng-container>
+</div>

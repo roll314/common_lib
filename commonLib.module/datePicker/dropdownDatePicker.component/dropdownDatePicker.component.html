@@ -1,0 +1,48 @@
+<div>
+    <div
+        class="dropdown"
+        dropdown
+        dropDownListPosition="auto"
+        [dropDownClosed]="closed"
+        [disabled]="disabled"
+        (onChange)="closed = !$event"
+        [positionFixed]="positionFixed"
+        [appendToBody]="true">
+        <div dropdown-open>
+            <ng-container *ngIf="!multiselect">
+                <input
+                    readonly="readonly"
+                    type="text"
+                    class="form-control"
+                    [disabled]="disabled"
+                    [style.width]="width"
+                    [ngModel]="settings.dateFormatter(date)"/>
+            </ng-container>
+            <ng-container *ngIf="multiselect">
+                <div style="display: flex;">
+                    <div class="bubbles-container" [style.width]="width">
+                        <div *ngFor="let d of date">
+                            <div class="c-token">
+                                <span class="c-label bubble-overflow-ellipsis" [title]="dateFormatter(d)">
+                                    {{dateFormatter(d)}}
+                                </span>
+                                <i *ngIf="showRemoveCross" (click)="removeDate($event, d)" class="fa fa-remove"></i>
+                            </div>
+                        </div>
+                        <span class="fa" [ngClass]="{'fa-angle-down': closed, 'fa-angle-up': !closed}"></span>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+        <div class="dropdown-menu" dropdown-menu style="width: 198px;">
+            <span dropdown-not-closable-zone>
+                <date-picker
+                    [(ngModel)]="date"
+                    (onDateChanged)="closed = true; dateChanged($event)"
+                    [settings]="settings"
+                    [multiselect]="multiselect">
+                </date-picker>
+            </span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper {
+     width: 196px;
+     height: 184px;
+ }
+
+.month-group {
+    text-align: center;
+}
+
+.month {
+    width: 23%;
+    cursor: pointer;
+}
+
+.month:hover {
+    background-color: #ddd;
+    color: white;
+}
+
+.selected-month {
+    background-color: #bbb;
+    color: white;
+}

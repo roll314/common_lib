@@ -1,0 +1,22 @@
+<div class="wrapper">
+    <table>
+        <tr class="month-group">
+            <td class="month" [ngClass]="{'selected-month': month === 0}" (click)="setMonth(0)">{{months[0]}}</td>
+            <td class="month" [ngClass]="{'selected-month': month === 1}" (click)="setMonth(1)">{{months[1]}}</td>
+            <td class="month" [ngClass]="{'selected-month': month === 2}" (click)="setMonth(2)">{{months[2]}}</td>
+            <td class="month" [ngClass]="{'selected-month': month === 3}" (click)="setMonth(3)">{{months[3]}}</td>
+        </tr>
+        <tr class="month-group">
+            <td class="month" [ngClass]="{'selected-month': month === 4}" (click)="setMonth(4)">{{months[4]}}</td>
+            <td class="month" [ngClass]="{'selected-month': month === 5}" (click)="setMonth(5)">{{months[5]}}</td>
+            <td class="month" [ngClass]="{'selected-month': month === 6}" (click)="setMonth(6)">{{months[6]}}</td>
+            <td class="month" [ngClass]="{'selected-month': month === 7}" (click)="setMonth(7)">{{months[7]}}</td>
+        </tr>
+        <tr class="month-group">
+            <td class="month" [ngClass]="{'selected-month': month === 8}" (click)="setMonth(8)">{{months[8]}}</td>
+            <td class="month" [ngClass]="{'selected-month': month === 9}" (click)="setMonth(9)">{{months[9]}}</td>
+            <td class="month" [ngClass]="{'selected-month': month === 10}" (click)="setMonth(10)">{{months[10]}}</td>
+            <td class="month" [ngClass]="{'selected-month': month === 11}" (click)="setMonth(11)">{{months[11]}}</td>
+        </tr>
+    </table>
+</div>

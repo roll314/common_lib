@@ -1,0 +1,59 @@
+input {
+    cursor: pointer;
+}
+
+
+.bubbles-container {
+    color: #333333;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    min-height: 37px;
+    cursor: pointer;
+    padding: 7px 12px;
+    height: 100%;
+}
+
+.bubbles-container .fa-angle-down, .bubbles-container .fa-angle-up {
+    font-size: 15pt;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.bubble-overflow-ellipsis {
+    max-width: 100px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.c-token, .c-label {
+    display: block;
+    float: left;
+    margin-right: 3px;
+}
+
+.c-list, .c-token {
+    list-style: none;
+    padding: 0px 5px;
+    background: #0079FE;
+    color: #fff;
+    border-radius: 2px;
+    margin-right: 4px;
+    margin-top: 2px;
+    float: left;
+}
+
+.c-list {
+    float: left;
+    padding: 0px;
+    margin: 0px;
+    width: calc(100% - 20px);
+    margin-left: 1px;
+    font-size: 12px;
+    z-index: 100000000;
+}

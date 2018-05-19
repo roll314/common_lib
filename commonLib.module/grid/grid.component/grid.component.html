@@ -1,0 +1,61 @@
+<div class="table-responsive">
+    <div class="dataTables_wrapper">
+        <div class="datatable-scroll">
+            <table class="table table-striped main-table datatable-basic dataTable">
+                <thead>
+                    <tr>
+                        <th *ngIf="settings.selectableRows" style="width: 25px;"></th>
+                        <th *ngFor="let schemaRow of schema.schemaRows" [ngStyle]="schemaRow.style">
+                            <ng-dynamic
+                                [componentType]="schemaRow.headerComponent"
+                                [inputData]="{ header: schemaRow.header }">
+                            </ng-dynamic>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr
+                        *ngFor="let dataRow of schema.dataRows"
+                        class="cursor-pointer"
+                        [ngClass]="{'selected-row': dataRow.selected}"
+                        (click)="rowClick(dataRow)">
+                        <td *ngIf="settings.selectableRows" style="width: 25px;">
+                            <div class="pure-checkbox" (click)="selectRow($event, dataRow)">
+                                <input type="checkbox" [checked]="dataRow.selected">
+                                <label></label>
+                            </div>
+                        </td>
+                        <td *ngFor="let schemaRow of schema.schemaRows" [ngStyle]="schemaRow.style">
+                            <ng-dynamic
+                                [componentType]="schemaRow.cellComponent"
+                                [inputData]="{
+                                    data: dataRow.data,
+                                    cellData: schemaRow.cellDataGetter(dataRow.data),
+                                    grid: myself
+                                }">
+                            </ng-dynamic>
+                        </td>
+                    </tr>
+                </tbody>
+                <div *ngIf="isLoading" class="default-spinner-wrapper-in-container-white in-container">
+                    <div class="default-loader-black"></div>
+                </div>
+            </table>
+            <div *ngIf="schema.dataRows?.length === 0" class="no-records-message">{{settings.noRecordsTitle}}</div>
+        </div>
+        <div class="datatable-footer" *ngIf="!(settings.hidePaginatorIfNoPages && (totalRows / settings.rowsPerPage) < 1)">
+            <div class="dataTables_info">
+                с {{(settings.currentPage - 1) * settings.rowsPerPage + 1}} по {{settings.currentPage * settings.rowsPerPage}} из {{totalRows}} записей
+            </div>
+            <div class="dataTables_paginate paging_simple_numbers">
+                <ng-paginaton
+                    [ngModel]="settings.currentPage"
+                    [paginationOffset]="settings.paginationOffset"
+                    [rowsPerPage]="settings.rowsPerPage"
+                    [totalRows]="totalRows"
+                    (onPageChanged)="pageChanged($event)">
+                </ng-paginaton>
+            </div>
+        </div>
+    </div>
+</div>

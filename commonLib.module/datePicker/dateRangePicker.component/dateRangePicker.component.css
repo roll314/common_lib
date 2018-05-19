@@ -1,0 +1,65 @@
+input.from-to {
+    width: calc(50% - 2px);
+    margin: 0;
+    display: inline;
+    height: 26px;
+}
+
+.left-pane {
+    display: inline-flex;
+    width: 120px;
+    height: 211px;
+    background-color: white;
+    vertical-align: top;
+}
+
+.preset-dates-container {
+    margin-top: 5px;
+    width: 100%;
+    position: relative;
+}
+
+.preset-date {
+    cursor: pointer;
+    height: 30px;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.preset-date:hover {
+    background-color: #26A69A;
+    color: white;
+}
+
+.buttons-container {
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    text-align: center;
+}
+
+.apply-button {
+    width: 100%;
+    background-color: #26A69A;
+    color: white;
+    border: 0;
+    height: 25px;
+
+    margin-bottom: 5px;
+}
+
+.close-button {
+    width: 100%;
+    border: 1px solid #26A69A;
+    color: black;
+    height: 25px;
+}
+
+.main-container {
+    background-color: white;
+    width: 320px;
+}
+
+.apply-button-disabled {
+    background-color: #eee;
+}

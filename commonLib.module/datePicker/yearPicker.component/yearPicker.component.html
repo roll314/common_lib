@@ -1,0 +1,37 @@
+<div class="wrapper">
+    <div class="header">
+        <span>
+            <i class="left-arrow fa fa-angle-left" (click)="viewYear = viewYear - 8"></i>
+            <span class="year-name">{{viewYear-4}} - {{viewYear+4}}</span>
+            <i class="right-arrow fa fa-angle-right" (click)="viewYear = viewYear + 8"></i>
+        </span>
+        <div>
+            <span class="current-year" (click)="viewYear = currentYear; year = currentYear">
+                {{currentYear}}
+            </span>
+            /
+            <span class="current-year" (click)="viewYear = year">
+                {{year}}
+            </span>
+        </div>
+    </div>
+    <table>
+        <tr class="year-group">
+            <td class="year" [ngClass]="{'selected-year': year === viewYear-4}" (click)="setYear(viewYear-4)">{{viewYear-4}}</td>
+            <td class="year" [ngClass]="{'selected-year': year === viewYear-3}" (click)="setYear(viewYear-3)">{{viewYear-3}}</td>
+            <td class="year" [ngClass]="{'selected-year': year === viewYear-2}" (click)="setYear(viewYear-2)">{{viewYear-2}}</td>
+
+        </tr>
+        <tr class="year-group">
+            <td class="year" [ngClass]="{'selected-year': year === viewYear-1}" (click)="setYear(viewYear-1)">{{viewYear-1}}</td>
+            <td class="year" [ngClass]="{'selected-year': year === viewYear}" (click)="setYear(viewYear)">{{viewYear}}</td>
+            <td class="year" [ngClass]="{'selected-year': year === viewYear+1}" (click)="setYear(viewYear+1)">{{viewYear+1}}</td>
+
+        </tr>
+        <tr class="year-group">
+            <td class="year" [ngClass]="{'selected-year': year === viewYear+2}" (click)="setYear(viewYear+2)">{{viewYear+2}}</td>
+            <td class="year" [ngClass]="{'selected-year': year === viewYear+3}" (click)="setYear(viewYear+3)">{{viewYear+3}}</td>
+            <td class="year" [ngClass]="{'selected-year': year === viewYear+4}" (click)="setYear(viewYear+4)">{{viewYear+4}}</td>
+        </tr>
+    </table>
+</div>

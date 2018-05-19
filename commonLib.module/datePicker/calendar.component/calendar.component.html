@@ -1,0 +1,19 @@
+<table class="calendar-days">
+    <tr>
+        <td class="day-of-week" *ngFor="let dayName of daysOfWeeks">{{dayName}}</td>
+    </tr>
+    <tr *ngFor="let week of monthDays">
+        <td *ngFor="let day of week">
+            <div
+                [ngClass]="{
+                             'disabledDay': isDayDisabled(day) || day.monthKind !== 'current',
+                             'selectedDay': isSelectedDay(day),
+                             'highlightedDay': isHighlightedDay(day) && !isSelectedDay(day)
+                           }"
+                class="day"
+                (click)="setDay(day);">
+                {{day.dayNumber}}
+            </div>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,66 @@
+<div>
+    <div class="header">
+        <span>
+            <i class="left-arrow fa fa-angle-left" (click)="prevMonth()"></i>
+            <span class="month-name">{{monthName}}</span>
+            <i class="right-arrow fa fa-angle-right" (click)="nextMonth()"></i>
+        </span>
+        <span>
+            <i class="fa fa-calendar" style="cursor:pointer;" (click)="setToday()"></i>
+        </span>
+        <span>
+            <i class="left-arrow fa fa-angle-left" (click)="prevYear()"></i>
+            <span class="year-name">{{viewDate?.getFullYear()}}</span>
+            <i class="right-arrow fa fa-angle-right" (click)="nextYear()"></i>
+        </span>
+    </div>
+
+    <table class="calendar-days">
+        <tr>
+            <td class="day-of-week" *ngFor="let dayName of daysOfWeeks">{{dayName}}</td>
+        </tr>
+        <tr *ngFor="let week of monthDays">
+            <td *ngFor="let day of week" style="vertical-align: top; max-width: 100px;">
+                <div
+                    [ngClass]="{
+                        'disabledDay': day.monthKind !== 'current',
+                        'highlightedDay': isHighlightedDay(day)
+                    }"
+                    class="day">
+
+                    <div class="day-header-container">
+                        <div class="add-icon" (click)="addTask(day)">
+                            <i class="icon-plus-circle2"></i>
+                        </div>
+                        <div class="day-value">{{day.dayNumber}}</div>
+                        <div style="float: none;"></div>
+                    </div>
+                    <div class="day-header-component">
+                        <ng-container *ngFor="let group of groupsDays[day.date.toLocaleDateString()]">
+                            <div
+                                class="task"
+                                [ngClass]="{'selected-task': compareObj(selectedGroup, group)}"
+                                [style.background-color]="group.color"
+                                [title]="group.title"
+                                (click)="groupClick(group)">
+                                <span class="task-text">{{group.title}}</span>
+                                <span style="float: right">{{group.count}}</span>
+                            </div>
+                        </ng-container>
+
+                        <ng-container *ngFor="let task of tasksDays[day.date.toLocaleDateString()];">
+                            <div
+                                class="task"
+                                [ngClass]="{'selected-task': compareObj(selectedTask, task)}"
+                                [style.background-color]="task.color"
+                                [title]="task.title"
+                                (click)="taskClick(task)">
+                                <span class="task-text">{{task.title}}</span>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

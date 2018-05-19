@@ -1,0 +1,25 @@
+<div>
+    <div
+        class="dropdown"
+        dropdown
+        dropDownListPosition="auto"
+        [dropDownClosed]="closed"
+        (onChange)="closed = !$event"
+        [positionFixed]="positionFixed"
+        [appendToBody]="true">
+        <span dropdown-open>
+            <input readonly="readonly" type="text" class="form-control" [style.width]="width" [ngModel]="settings.dateRangeFormatter(dateRange)"/>
+        </span>
+        <div class="dropdown-menu" dropdown-menu>
+            <span dropdown-not-closable-zone>
+                <date-range-picker
+                    [ngModel]="dateRange"
+                    (onApplyButtonClicked)="apply()"
+                    (onCloseButtonClicked)="close()"
+                    [settings]="settings"
+                    (onDateRangeChanged)="dateRangeChanged($event)">
+                </date-range-picker>
+            </span>
+        </div>
+    </div>
+</div>
